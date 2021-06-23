@@ -22,7 +22,6 @@ export class User {
             this.id = uuid();
         }
     }
-
 }
 
 //alternatively I can export:
