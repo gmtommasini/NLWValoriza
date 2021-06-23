@@ -1,3 +1,4 @@
+import { getCustomRepository } from "typeorm";
 import { UsersRepositories } from "../repositories/UsersRepositories"
 
 interface IUserRequest {
@@ -12,7 +13,7 @@ class CreateUserService {
         if (!email) {
             throw new Error("User data error: email is mandatory");
         }
-        const usersRepositories = new UsersRepositories;
+        const usersRepositories = getCustomRepository(UsersRepositories);
         const userAlreadyExists = await usersRepositories.findOne({
             email //do I need the comma at the end?
         })
@@ -25,7 +26,7 @@ class CreateUserService {
 
         await usersRepositories.save(user)
 
-
+        return user;
     }
 }
 
