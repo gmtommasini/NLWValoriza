@@ -1,0 +1,27 @@
+
+#simple conection test
+GET  http://localhost:3000/test HTTP/1.1
+content-type: application/json
+
+
+###
+#login user
+POST http://localhost:3000/login HTTP/1.1
+content-type: application/json
+{
+    "email": "admin@email.com", 
+    "password": "1234"
+}
+
+
+###
+# Create a compliment
+POST http://localhost:3000/compliments HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGVtYWlsLmNvbSIsImlhdCI6MTYyNDc0NzU0NiwiZXhwIjoxNjI0ODMzOTQ2LCJzdWIiOiIzMjBkMmFiMi01NWI3LTQyYWEtYjY1Zi00NTgxMmVlZWQzYzAifQ.hePxxYddjGTs_D_SOV4DATMUfvLblqUiz2RidnlpYsY
+
+{
+"tag_id":"6563778e-8813-48dc-b54a-530629d60827",
+"user_receiver":"3cdaecf9-47d2-49c4-b67f-ef50aac0bda5",
+"message":"OI OIo oioi"
+}

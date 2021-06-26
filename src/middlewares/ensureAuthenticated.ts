@@ -20,6 +20,7 @@ export function ensureAuthenticated(req: Request, res: Response, next: NextFunct
     try {
         //const decode =  verify(token ,"someHashCodeHere") //hash is the same used in the AutenticateUserService" 
         //console.log(decode)
+        //retrieve user info
         const { sub } = verify(token, "someHashCodeHere") as Ipayload; //sub is inside the decoded token
         req.user_id = sub;
         return next();
@@ -30,7 +31,6 @@ export function ensureAuthenticated(req: Request, res: Response, next: NextFunct
     }
 
 
-    //retrieve user info
 
     if (true) {
         return next();

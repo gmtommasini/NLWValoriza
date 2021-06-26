@@ -3,7 +3,7 @@ import { ensureAdmin } from "./middlewares/ensureAdmin";
 import { CreateUserController } from "./controllers/CreateUserController";
 import { CreateTagController } from "./controllers/CreateTagController";
 import { AutenticateUserController } from "./controllers/AutenticateUserController";
-import { CreateComplimentController } from "./controllers/CreateControllerController";
+import { CreateComplimentController } from "./controllers/CreateComplimentController";
 import { ensureAuthenticated } from "./middlewares/ensureAuthenticated";
 
 
@@ -21,7 +21,7 @@ router.get("/test", (req, res) =>{
 router.post("/users", createUserController.handle);
 router.post("/tags", ensureAuthenticated, ensureAdmin, createTagController.handle);
 router.post("/login", autenticateUserController.handle);
-router.post("/compliments", createComplimentController.handle);
+router.post("/compliments", ensureAuthenticated, createComplimentController.handle);
 
 //rouser.use(ensureAdmin); 
 /* Using ensureAdmin like this, all routes from this point will have admin autorizarion validated
