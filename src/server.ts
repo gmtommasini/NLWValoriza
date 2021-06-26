@@ -13,6 +13,7 @@ app.use(express.json());
 
 app.use(router);
 
+/*** Error handling ***/
 // error handling MUST be after the routes
 app.use(
     (err: Error, req: Request, res: Response, next: NextFunction) => {
