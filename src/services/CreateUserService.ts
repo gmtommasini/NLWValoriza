@@ -15,7 +15,7 @@ class CreateUserService {
         if (!email) {
             throw new Error("User data error: email is mandatory");
         }
-
+        
         const passwordHash = await hash(password, 8);
         const usersRepositories = getCustomRepository(UsersRepositories);
         const userAlreadyExists = await usersRepositories.findOne({
