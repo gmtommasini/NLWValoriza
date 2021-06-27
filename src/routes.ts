@@ -5,6 +5,10 @@ import { CreateTagController } from "./controllers/CreateTagController";
 import { AutenticateUserController } from "./controllers/AutenticateUserController";
 import { CreateComplimentController } from "./controllers/CreateComplimentController";
 import { ensureAuthenticated } from "./middlewares/ensureAuthenticated";
+import { ListComplimentsSentByUserController } from "./controllers/ListComplimentsSentByUserController";
+import { ListComplimentReceivedByUserController } from "./controllers/ListComplimentsReceivedByUserController";
+import { ListTagsController } from "./controllers/ListTagsController";
+
 
 
 const router = Router();
@@ -12,6 +16,8 @@ const createUserController =  new CreateUserController();
 const createTagController =  new CreateTagController();
 const autenticateUserController =  new AutenticateUserController();
 const createComplimentController = new CreateComplimentController();
+const listComplimentsSentByUserController = new ListComplimentsSentByUserController();
+const listComplimentsReceivedByUserService = new ListComplimentReceivedByUserController();
 
 //console.log("routes");
 router.get("/test", (req, res) =>{
@@ -22,6 +28,10 @@ router.post("/users", createUserController.handle);
 router.post("/tags", ensureAuthenticated, ensureAdmin, createTagController.handle);
 router.post("/login", autenticateUserController.handle);
 router.post("/compliments", ensureAuthenticated, createComplimentController.handle);
+
+router.get("/users/compliments/sent", ensureAuthenticated, listComplimentsSentByUserController.handle)
+router.get("/users/compliments/received", ensureAuthenticated, listComplimentsReceivedByUserService.handle)
+router.get("/tags/list", ensureAuthenticated, new ListTagsController().handle);
 
 //rouser.use(ensureAdmin); 
 /* Using ensureAdmin like this, all routes from this point will have admin autorizarion validated

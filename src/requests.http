@@ -5,11 +5,12 @@ content-type: application/json
 
 
 ###
-#login user
+# login user
 POST http://localhost:3000/login HTTP/1.1
 content-type: application/json
+
 {
-    "email": "admin@email.com", 
+    "email": "gui@email.com", 
     "password": "1234"
 }
 
@@ -18,10 +19,33 @@ content-type: application/json
 # Create a compliment
 POST http://localhost:3000/compliments HTTP/1.1
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGVtYWlsLmNvbSIsImlhdCI6MTYyNDc0NzU0NiwiZXhwIjoxNjI0ODMzOTQ2LCJzdWIiOiIzMjBkMmFiMi01NWI3LTQyYWEtYjY1Zi00NTgxMmVlZWQzYzAifQ.hePxxYddjGTs_D_SOV4DATMUfvLblqUiz2RidnlpYsY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imd1aUBlbWFpbC5jb20iLCJpYXQiOjE2MjQ4MjIzNzgsImV4cCI6MTYyNDkwODc3OCwic3ViIjoiM2NkYWVjZjktNDdkMi00OWM0LWI2N2YtZWY1MGFhYzBiZGE1In0.HK4uQlmUrVfe0t4k19C_dkS9ti-cqDGazHiv-9NvllU
 
 {
 "tag_id":"6563778e-8813-48dc-b54a-530629d60827",
-"user_receiver":"3cdaecf9-47d2-49c4-b67f-ef50aac0bda5",
-"message":"OI OIo oioi"
+"user_receiver":"320d2ab2-55b7-42aa-b65f-45812eeed3c0",
+"message":"FERA!"
 }
+
+
+###
+# List compliments sent
+GET  http://localhost:3000/users/compliments/sent HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGVtYWlsLmNvbSIsImlhdCI6MTYyNDc1ODk3NSwiZXhwIjoxNjI0ODQ1Mzc1LCJzdWIiOiIzMjBkMmFiMi01NWI3LTQyYWEtYjY1Zi00NTgxMmVlZWQzYzAifQ.h_iy65q7azyt8RB3ISV5HY-pUODbrii8MgfmA3UDt6E
+
+###
+# List compliments received
+GET  http://localhost:3000/users/compliments/received HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGVtYWlsLmNvbSIsImlhdCI6MTYyNDc1ODk3NSwiZXhwIjoxNjI0ODQ1Mzc1LCJzdWIiOiIzMjBkMmFiMi01NWI3LTQyYWEtYjY1Zi00NTgxMmVlZWQzYzAifQ.h_iy65q7azyt8RB3ISV5HY-pUODbrii8MgfmA3UDt6E
+
+###
+# List tags
+GET  http://localhost:3000/tags/list HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGVtYWlsLmNvbSIsImlhdCI6MTYyNDc1ODk3NSwiZXhwIjoxNjI0ODQ1Mzc1LCJzdWIiOiIzMjBkMmFiMi01NWI3LTQyYWEtYjY1Zi00NTgxMmVlZWQzYzAifQ.h_iy65q7azyt8RB3ISV5HY-pUODbrii8MgfmA3UDt6E
+
+
+
+
