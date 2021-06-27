@@ -8,10 +8,10 @@ import { ensureAuthenticated } from "./middlewares/ensureAuthenticated";
 import { ListComplimentsSentByUserController } from "./controllers/ListComplimentsSentByUserController";
 import { ListComplimentReceivedByUserController } from "./controllers/ListComplimentsReceivedByUserController";
 import { ListTagsController } from "./controllers/ListTagsController";
-
-
+import { ListUsersController } from "./controllers/ListUsersController";
 
 const router = Router();
+
 const createUserController =  new CreateUserController();
 const createTagController =  new CreateTagController();
 const autenticateUserController =  new AutenticateUserController();
@@ -32,6 +32,7 @@ router.post("/compliments", ensureAuthenticated, createComplimentController.hand
 router.get("/users/compliments/sent", ensureAuthenticated, listComplimentsSentByUserController.handle)
 router.get("/users/compliments/received", ensureAuthenticated, listComplimentsReceivedByUserService.handle)
 router.get("/tags/list", ensureAuthenticated, new ListTagsController().handle);
+router.get("/users/list", ensureAuthenticated, ensureAdmin, new ListUsersController().handle);
 
 //rouser.use(ensureAdmin); 
 /* Using ensureAdmin like this, all routes from this point will have admin autorizarion validated

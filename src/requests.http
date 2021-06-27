@@ -47,5 +47,12 @@ content-type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGVtYWlsLmNvbSIsImlhdCI6MTYyNDc1ODk3NSwiZXhwIjoxNjI0ODQ1Mzc1LCJzdWIiOiIzMjBkMmFiMi01NWI3LTQyYWEtYjY1Zi00NTgxMmVlZWQzYzAifQ.h_iy65q7azyt8RB3ISV5HY-pUODbrii8MgfmA3UDt6E
 
 
+###
+# List users
+GET  http://localhost:3000/users/list HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGVtYWlsLmNvbSIsImlhdCI6MTYyNDc1ODk3NSwiZXhwIjoxNjI0ODQ1Mzc1LCJzdWIiOiIzMjBkMmFiMi01NWI3LTQyYWEtYjY1Zi00NTgxMmVlZWQzYzAifQ.h_iy65q7azyt8RB3ISV5HY-pUODbrii8MgfmA3UDt6E
+
+
 
 

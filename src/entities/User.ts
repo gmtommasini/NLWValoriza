@@ -1,5 +1,6 @@
 import {Entity, PrimaryColumn,Column, CreateDateColumn, UpdateDateColumn} from "typeorm";
 import { v4 as uuid } from "uuid" //cada verssao funciona de um modo diferente. Deveria pesquisar sobre isso.
+import { Exclude } from "class-transformer";
 
 @Entity("users") //this class User relates to users table in the DB
 export class User {
@@ -10,6 +11,8 @@ export class User {
     name: string;
     @Column()
     email: string;
+
+    @Exclude() //hiding password from list
     @Column()
     password: string;
     @Column()

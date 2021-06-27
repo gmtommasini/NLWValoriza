@@ -1,5 +1,5 @@
 import {Entity, PrimaryColumn,Column, CreateDateColumn, UpdateDateColumn} from "typeorm";
-
+import { Expose } from "class-transformer";
 import { v4 as uuid } from "uuid" //cada verssao funciona de um modo diferente. Deveria pesquisar sobre isso.
 
 @Entity("tags") //this class Tag relates to tags table in the DB
@@ -14,6 +14,12 @@ class Tag {
     created_at: Date;
     @UpdateDateColumn()
     updated_at: Date;
+
+    @Expose({name: "name_Custom"})
+    nameCustom():string{
+        return `#${this.name}`
+    }
+    
 
     constructor(){
         if(!this.id){
